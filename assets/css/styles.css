@@ -197,10 +197,14 @@ body{
     opacity: 0.28;
 }
 
+.mnsry_container .item h1:hover{
+    opacity: 0.28;
+}
+
 #mnsry_container .item {
     width: calc((100% - 20px) / 3);
     overflow: hidden;
-    cursor: pointer;
+    /* cursor: pointer; */
     opacity: 0;
     border-radius: 10px;
     padding: 5px;
@@ -216,6 +220,7 @@ body{
     z-index: 1;
     font-size: unset;
     font-weight: normal;
+    cursor: pointer;
 }
 
 #mnsry_container .item img {
@@ -226,10 +231,10 @@ body{
     border-radius: 10px;
 }
 
-/* #mnsry_container .item:hover h1 {
-    transform: translate3d(0, 18px, 0) scale(1.2, 0.4);
+#mnsry_container .item:hover h1 {
+    /* transform: translate3d(0, 18px, 0) scale(1.2, 0.4); */
     opacity: 0;
-} */
+}
 
 #mnsry_container .item:hover img {
     opacity: 1;
