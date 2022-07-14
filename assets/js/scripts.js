@@ -32,7 +32,7 @@ function scrollFunction() {
     } else {
         mybutton.style.right = "-70px";
         mybutton1.style.right = "-90px";
-        mybutton2.style.right = "-90px";
+        mybutton2.style.right = "-100px";
     }
 }
 

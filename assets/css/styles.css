@@ -145,7 +145,7 @@ body{
 .n_move-to-schem{
     position: fixed;
     bottom: 50px;
-    right: -90px;
+    right: -100px;
     z-index: 99;
     font-size: var(--move-to-top-font-size);
     font-weight: var(--font-weight-bold);
