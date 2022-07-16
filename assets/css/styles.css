@@ -181,7 +181,7 @@ body{
     background-color: var(--green-hover);
 }
 
-.button-area .button.active {
+.button-area input[type=checkbox]:checked + .button{
     background-color: var(--green-hover);
 }
 
@@ -189,64 +189,6 @@ body{
     display: none;
 }
 
-#mnsry_container {
-    position: relative;
-}
-
-#mnsry_container:hover img {
-    opacity: 0.28;
-}
-
-.mnsry_container .item h1:hover{
-    opacity: 0.28;
-}
-
-#mnsry_container .item {
-    width: calc((100% - 20px) / 3);
-    overflow: hidden;
-    /* cursor: pointer; */
-    opacity: 0;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-#mnsry_container .item h1 {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    width: 100%;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    transition: all 1.2s;
-    z-index: 1;
-    font-size: unset;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-#mnsry_container .item img {
-    display: block;
-    width: 100%;
-    opacity: 0.25;
-    transition: all 0.8s;
-    border-radius: 10px;
-}
-
-#mnsry_container .item:hover h1 {
-    /* transform: translate3d(0, 18px, 0) scale(1.2, 0.4); */
-    opacity: 0;
-}
-
-#mnsry_container .item:hover img {
-    opacity: 1;
-    transform: scale(1.04);
-}
-
-#loading_msg {
-    position: fixed;
-    top: 48%;
-    width: 100%;
-    z-index: -1;
-}
 .header-filter{
     color: var(--default-white);
     padding: 10px 10px 0;
@@ -266,7 +208,7 @@ body{
 
 .nameLink{
     display: inline-block;
-    margin: 10px 0;
+    margin: 15px 0px;
 }
 
 .nameLink a{
@@ -289,14 +231,120 @@ hr{
     background-color: var(--green-hover);
 }
 
-@media (max-width: 667px) {
-    #mnsry_container .item {
-        width: 100%;
+.filtered-inclusive .filter-item, 
+.filter-no-item { 
+    transition: 0.2ss;
+    display:none;
+    animation: fade_out_show 0.2s;
+}
+
+.filtered-inclusive .filter-item.selected {
+    transition: 0.2ss;
+    display: block;
+    animation: fade_in_show 0.2s;
+}
+
+.filter-no-item.filter-no-item-active { 
+    display:block; 
+    animation: fade_in_show 0.2s;
+    width:100%; 
+    background:#fcc; 
+    color:red; 
+    padding:1em 1.5em; 
+    transition: 0.2ss;
+    border-radius: 10px;
+}
+
+.filter-wrap{
+    transition: 0.2ss;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.filter-wrap-1{
+    grid-template-columns: repeat(1,1fr);
+}
+
+.filter-item{
+    transition: 0.2ss;
+    border-radius: 10px;
+    animation: fade_out_show 0.2s;
+    padding: 0 !important;
+    position: relative;
+}
+
+.filter-item img{
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.2ss;
+}
+
+.filter-item span{
+    display: block;
+    overflow: hidden;
+    transition: 0.2s;
+    position: absolute;
+    opacity: 0;
+    top: 10px;
+    left: 10px;
+}
+
+.filter-item:hover{
+    cursor: pointer;
+}
+
+.filter-item:hover>span{
+    opacity: 1;
+    height: auto;
+    background-color: #2f2f317a;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.filter-item:hover>img{
+    /* opacity: 0.2; */
+    transform:scale(1.02);
+}
+
+@keyframes fade_in_show {
+    0% {
+         opacity: 0;
+         transform: scale(0)
+    }
+
+    100% {
+         opacity: 1;
+         transform: scale(1)
     }
 }
 
-@media (max-width: 860px) {
-    #mnsry_container .item {
-        width: 45%;
+@keyframes fade_out_show {
+    100% {
+         opacity: 1;
+         transform: scale(1)
+    }
+
+    0% {
+         opacity: 0;
+         transform: scale(0)
+    }
+}
+
+@-webkit-keyframes filterMask { 
+	0% { background:transparent } 
+	50% { background:#fff } 
+	100% { background:transparent } 
+}
+
+@keyframes filterMask { 
+	0% { background:transparent } 
+	50% { background:#fff } 
+	100% { background:transparent } 
+}
+
+@media only screen and (max-width:768px) {
+    .filter-wrap{
+        grid-template-columns: repeat(1,1fr);
     }
 }
